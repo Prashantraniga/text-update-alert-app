@@ -14,7 +14,7 @@ class MyForm extends React.Component {
     this.state = { inputText: '' };
   }
   mySubmitHandler = (event) => {
-    this.preventDefault();
+    event.preventDefault();
     alert("You entered " + this.state.inputText);
     alert("Test");
   }
@@ -27,13 +27,15 @@ class MyForm extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.mySubmitHandler}>
-      <h1>Entered text: {this.state.inputText}</h1>
-      <p>Please type anything:</p>
-      <input type='text' onChange={this.myChangeHandler} />
-      
-      <input type='submit'/>
-      </form>
+      <div style= {{display:'flex',justifyContent:'center', marginTop:'50px'}} >
+        <form onSubmit={this.mySubmitHandler}>
+        <h1>Entered text: {this.state.inputText}</h1>
+        <p>Please type anything:</p>
+        <input type='text' onChange={this.myChangeHandler} />
+        
+        <input type='submit'/>
+        </form>
+      </div>
     );
   }
 }
